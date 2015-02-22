@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D545DF621A98AFA90022CE24 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D545DF611A98AFA90022CE24 /* SpriteKit.framework */; };
 		D55DB2651A94C7F1009023AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D55DB2641A94C7F1009023AE /* main.m */; };
 		D55DB26E1A94C7F1009023AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55DB26C1A94C7F1009023AE /* Main.storyboard */; };
 		D55DB2701A94C7F1009023AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55DB26F1A94C7F1009023AE /* Images.xcassets */; };
@@ -17,11 +18,13 @@
 		D55DB29C1A94CFF3009023AE /* ImageViewCGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D55DB29B1A94CFF3009023AE /* ImageViewCGPath.m */; };
 		D55DB2A01A94D423009023AE /* ImageListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D55DB29F1A94D423009023AE /* ImageListTableViewController.m */; };
 		D55DB2A41A94D573009023AE /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = D55DB2A31A94D573009023AE /* AppState.m */; };
-		D55DB2AC1A94D7B0009023AE /* Close_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D55DB2A81A94D7B0009023AE /* Close_2.png */; };
+		D55DB2AC1A94D7B0009023AE /* Close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D55DB2A81A94D7B0009023AE /* Close@3x.png */; };
 		D55DB2AD1A94D7B0009023AE /* extra_time_btn_gold.png in Resources */ = {isa = PBXBuildFile; fileRef = D55DB2A91A94D7B0009023AE /* extra_time_btn_gold.png */; };
 		D55DB2AE1A94D7B0009023AE /* share_score_facebook_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D55DB2AA1A94D7B0009023AE /* share_score_facebook_selected@3x.png */; };
 		D55DB2AF1A94D7B0009023AE /* share_score_tweeter_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D55DB2AB1A94D7B0009023AE /* share_score_tweeter_selected@3x.png */; };
 		D560664B1A94DC1B00D23184 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D560664A1A94DC1B00D23184 /* QuartzCore.framework */; };
+		D58EA99D1A975A0200D1849E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58EA99C1A975A0200D1849E /* GameKit.framework */; };
+		D58EA9A11A97758C00D1849E /* MainScen.m in Sources */ = {isa = PBXBuildFile; fileRef = D58EA9A01A97758C00D1849E /* MainScen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D545DF611A98AFA90022CE24 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		D55DB25F1A94C7F1009023AE /* ImageCGPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCGPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55DB2631A94C7F1009023AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D55DB2641A94C7F1009023AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,11 +58,14 @@
 		D55DB29F1A94D423009023AE /* ImageListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListTableViewController.m; sourceTree = "<group>"; };
 		D55DB2A21A94D573009023AE /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		D55DB2A31A94D573009023AE /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
-		D55DB2A81A94D7B0009023AE /* Close_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close_2.png; sourceTree = "<group>"; };
+		D55DB2A81A94D7B0009023AE /* Close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Close@3x.png"; sourceTree = "<group>"; };
 		D55DB2A91A94D7B0009023AE /* extra_time_btn_gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = extra_time_btn_gold.png; sourceTree = "<group>"; };
 		D55DB2AA1A94D7B0009023AE /* share_score_facebook_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_score_facebook_selected@3x.png"; sourceTree = "<group>"; };
 		D55DB2AB1A94D7B0009023AE /* share_score_tweeter_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_score_tweeter_selected@3x.png"; sourceTree = "<group>"; };
 		D560664A1A94DC1B00D23184 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D58EA99C1A975A0200D1849E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		D58EA99F1A97758C00D1849E /* MainScen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScen.h; path = ImageCGPath/src/ui/ScenViewController/MainScen.h; sourceTree = SOURCE_ROOT; };
+		D58EA9A01A97758C00D1849E /* MainScen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScen.m; path = ImageCGPath/src/ui/ScenViewController/MainScen.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D545DF621A98AFA90022CE24 /* SpriteKit.framework in Frameworks */,
+				D58EA99D1A975A0200D1849E /* GameKit.framework in Frameworks */,
 				D560664B1A94DC1B00D23184 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +92,8 @@
 		D55DB2561A94C7F1009023AE = {
 			isa = PBXGroup;
 			children = (
+				D545DF611A98AFA90022CE24 /* SpriteKit.framework */,
+				D58EA99C1A975A0200D1849E /* GameKit.framework */,
 				D560664A1A94DC1B00D23184 /* QuartzCore.framework */,
 				D55DB2611A94C7F1009023AE /* ImageCGPath */,
 				D55DB27B1A94C7F1009023AE /* ImageCGPathTests */,
@@ -177,6 +188,7 @@
 		D55DB2921A94CF7C009023AE /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D58EA99E1A97755100D1849E /* ScenViewController */,
 				D55DB29D1A94D40B009023AE /* ImageListTableViewController */,
 				D55DB2931A94CF7C009023AE /* ViewController */,
 			);
@@ -230,12 +242,21 @@
 		D55DB2A51A94D755009023AE /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D55DB2A81A94D7B0009023AE /* Close_2.png */,
+				D55DB2A81A94D7B0009023AE /* Close@3x.png */,
 				D55DB2A91A94D7B0009023AE /* extra_time_btn_gold.png */,
 				D55DB2AA1A94D7B0009023AE /* share_score_facebook_selected@3x.png */,
 				D55DB2AB1A94D7B0009023AE /* share_score_tweeter_selected@3x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		D58EA99E1A97755100D1849E /* ScenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D58EA99F1A97758C00D1849E /* MainScen.h */,
+				D58EA9A01A97758C00D1849E /* MainScen.m */,
+			);
+			path = ScenViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +341,7 @@
 			files = (
 				D55DB26E1A94C7F1009023AE /* Main.storyboard in Resources */,
 				D55DB2AD1A94D7B0009023AE /* extra_time_btn_gold.png in Resources */,
-				D55DB2AC1A94D7B0009023AE /* Close_2.png in Resources */,
+				D55DB2AC1A94D7B0009023AE /* Close@3x.png in Resources */,
 				D55DB2AF1A94D7B0009023AE /* share_score_tweeter_selected@3x.png in Resources */,
 				D55DB2AE1A94D7B0009023AE /* share_score_facebook_selected@3x.png in Resources */,
 				D55DB2731A94C7F1009023AE /* LaunchScreen.xib in Resources */,
@@ -348,6 +369,7 @@
 				D55DB29C1A94CFF3009023AE /* ImageViewCGPath.m in Sources */,
 				D55DB2961A94CF7C009023AE /* AppDelegate.m in Sources */,
 				D55DB2651A94C7F1009023AE /* main.m in Sources */,
+				D58EA9A11A97758C00D1849E /* MainScen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

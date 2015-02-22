@@ -6,19 +6,25 @@
 //  Copyright (c) 2015 Sergey Biloshkurskyi. All rights reserved.
 //
 
+#import <SpriteKit/SpriteKit.h>
+
 #import "ViewController.h"
 #import "AppState.h"
 #import "ImageViewCGPath.h"
+#import "MainScen.h"
 
 @interface ViewController () <UITextFieldDelegate>
 {
-    float scaleFactor;
-    int imageXSize;
+    float   scaleFactor;
+    int     imageXSize;
 }
 
 @property (nonatomic, weak) IBOutlet UITextField                *tfScaleKoeficient;
 @property (nonatomic, strong) ImageViewCGPath                   *selectedImageView;
 @property (nonatomic, strong) TempView                          *tempView;
+@property (nonatomic, strong) SKView                            *spriteView;
+@property (nonatomic, strong) MainScen                          *mainScen;
+@property (nonatomic, strong) SKSpriteNode                      *imageSpriteNode;
 
 @end
 
@@ -30,7 +36,17 @@
     scaleFactor = 1;
     imageXSize = 1;
     
-    // Do any additional setup after loading the view, typically from a nib.
+    _spriteView = [[SKView alloc] initWithFrame:self.view.bounds];
+    
+    [self.view addSubview:_spriteView];
+    _spriteView.showsDrawCount = YES;
+    _spriteView.showsNodeCount = YES;
+    _spriteView.showsFPS = YES;
+    
+    _mainScen = [[MainScen alloc] initWithSize:[UIScreen mainScreen].bounds.size];
+    _mainScen.scaleMode = SKSceneScaleModeAspectFill;
+    _mainScen.name = @"MainScen";
+    [_spriteView presentScene:_mainScen];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,9 +56,11 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
     if ([[AppState sharedInstance] imagePath].length > 0)
     {
-        [self loadImageView];
+        //[self loadImageView];//UIView
+        [self loadSpriteKitView];//SpriteKit
     }
 }
 
@@ -51,23 +69,44 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *aTouch = [touches anyObject];
-    CGPoint point = [aTouch locationInView:_selectedImageView];
-    point.x = point.x / imageXSize;
-    point.y = point.y / imageXSize;
     
-    if (point.x > 0 || point.y > 0)
+    CGPoint point = CGPointZero;
+    
+    if (_imageSpriteNode)
     {
-         NSLog(@"point = %@",NSStringFromCGPoint(point));
-        
-        if (_selectedImageView.points == nil)
-        {
-            _selectedImageView.points = [NSMutableArray array];
-        }
-        
-        [_selectedImageView.points addObject:[NSValue valueWithCGPoint:point]];
+        point = [aTouch locationInNode:_imageSpriteNode];
+    }
+    else if (_selectedImageView)
+    {
+        point = [aTouch locationInView:_selectedImageView];
+        point.x = point.x / imageXSize;
+        point.y = point.y / imageXSize;
     }
     
-    // point.x and point.y have the coordinates of the touch
+    if ([self pointEqualToPoint:point withPoint:CGPointZero] != YES)
+    {
+        if (point.x > 0 || point.y > 0)
+        {
+            if (_selectedImageView == nil)
+            {
+                _selectedImageView = [[ImageViewCGPath alloc] init];
+            }
+            
+            NSLog(@"point = %@",NSStringFromCGPoint(point));
+            
+            if (_selectedImageView.points == nil)
+            {
+                _selectedImageView.points = [NSMutableArray array];
+            }
+            
+            [_selectedImageView.points addObject:[NSValue valueWithCGPoint:point]];
+        }
+    }
+}
+
+-(BOOL)pointEqualToPoint:(CGPoint) point1 withPoint:(CGPoint)point2
+{
+    return point1.x == point2.x && point1.y == point2.y;
 }
 
 -(IBAction)updateImageScaleFactor:(id)sender
@@ -129,11 +168,50 @@
     [self.view sendSubviewToBack:_selectedImageView];
 }
 
--(IBAction) segmentControlAction:(id)sender{
-    NSLog(@"myAction",nil);
-    
+-(IBAction) segmentControlAction:(id)sender
+{
     UISegmentedControl * control = sender;
     imageXSize = [control selectedSegmentIndex];//@1x/@2x/@3x
+}
+
+#pragma mark - Private
+
+-(void)loadSpriteKitView
+{
+    [_mainScen removeAllChildren];
+    
+    [_mainScen setBackgroundColor:[UIColor whiteColor]];
+    
+    NSString *imageName = [[[AppState sharedInstance] imagePath] lastPathComponent];
+    UIImage *imageWithName = [UIImage imageNamed:imageName];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    float imageScaleFactor = [self scaleFactorForString:imageName];
+    CGSize size = CGSizeMake(imageWithName.size.width/imageScaleFactor, imageWithName.size.height/imageScaleFactor);
+    
+    _imageSpriteNode = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:size];
+    [_imageSpriteNode setTexture:texture];
+    
+    _imageSpriteNode.position = CGPointMake(CGRectGetMidX(_mainScen.frame) - size.width/2, CGRectGetMidY(_mainScen.frame));
+    _imageSpriteNode.anchorPoint = CGPointMake(0, 0);
+    NSLog(@"position = %@\nframe = %@",NSStringFromCGPoint(_imageSpriteNode.position),NSStringFromCGRect(_imageSpriteNode.frame));
+    
+    [_mainScen addChild:_imageSpriteNode];
+}
+
+-(float)scaleFactorForString:(NSString*)string
+{
+    if ([string rangeOfString:@"@3x"].location != NSNotFound)
+    {
+        return 3.0;
+    }
+    else if ([string rangeOfString:@"@2x"].location != NSNotFound)
+    {
+        return 2.0f;
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 @end

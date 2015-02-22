@@ -36,6 +36,7 @@
     }
     
     NSLog(@"stringPath => \n%@",stringPath);
+    NSLog(@"\n%@",_points);
 }
 
 @end
